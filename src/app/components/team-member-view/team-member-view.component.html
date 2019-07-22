@@ -1,8 +1,13 @@
 <div>
-    <mat-card>
+    <mat-card (click)="handleMemberClick(member.key)" >
       <mat-card-content>
           <p>{{member.name}}</p>
-          <mat-icon aria-hidden="false">delete</mat-icon>
+          <div class="actions">
+            <div class="timer">{{ timeLeft }}</div>
+            <button (click)="deleteMember(member.key)" mat-icon-button>
+             <mat-icon aria-hidden="false" class="delete-button">delete</mat-icon>
+            </button>
+          </div>
       </mat-card-content>
     </mat-card>
 </div>

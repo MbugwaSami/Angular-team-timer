@@ -1,7 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {FormsModule} from "@angular/forms";  
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
 import { MatCardModule, MatIconModule, MatFormFieldModule,  MatInputModule, MatButtonModule } from '@angular/material'
+
+import { environment } from '../environments/environment';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +26,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,

@@ -5,16 +5,18 @@
       <app-team-member-view
         *ngFor="let member of teamMembers"
         [member]="member"
+        (deletedMember) ="deleteMember($event)"
+        (selectedMember) ="selectMember($event)"
       >
       </app-team-member-view>
     </div>
     <div class="right-pane">
-            <div class="form-container">
+            <form class="form-container">
                 <mat-form-field>
-                    <input matInput placeholder="Team Member Name">
+                    <input matInput #memberName placeholder="Team Member Name">
                 </mat-form-field>
-                <button mat-button>Add Member</button>
-            </div>
+                <button (click)="addMember(memberName.value)" mat-button>Add Member</button>
+              </form>
     </div>
   </div>
 </div>
